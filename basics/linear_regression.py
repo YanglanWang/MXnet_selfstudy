@@ -30,7 +30,8 @@ num_epochs = 3
 for epoch in range(1, num_epochs + 1):
     for X, y in data_iter:
         with autograd.record():
-            l = loss(net(X), y)
+            test=net(X)
+            l = loss(test, y)
         l.backward()
         trainer.step(batch_size)
     l = loss(net(features), labels)
